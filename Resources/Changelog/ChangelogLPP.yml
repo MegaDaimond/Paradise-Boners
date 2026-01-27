@@ -88,3 +88,10 @@ Entries:
   id: 5617
   time: '2026-01-27T16:55:13.0000000+00:00'
   url: https://github.com/Lost-Paradise-Project/Paradise-Rebornger/pull/8
+- author: Evgencheg
+  changes:
+    - type: Add
+      message: Добавлен мессенджер на КПК!
+  id: 5618
+  time: '2026-01-27T16:56:23.0000000+00:00'
+  url: https://github.com/Lost-Paradise-Project/Paradise-Rebornger/pull/7
