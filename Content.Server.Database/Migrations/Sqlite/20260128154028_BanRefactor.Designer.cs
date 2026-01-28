@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20260120200455_BanRefactor")]
+    [Migration("20260128154028_BanRefactor")]
     partial class BanRefactor
     {
         /// <inheritdoc />
@@ -958,6 +958,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("construction_favorites");
 
+                    b.Property<string>("GhostId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ghost_id");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -990,6 +995,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ErpStatus")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("erp_status");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -1060,6 +1070,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
+
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1255,6 +1270,45 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasDatabaseName("IX_server_ban_hit_connection_id");
 
                     b.ToTable("server_ban_hit", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.Property<bool>("AllowJob")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("allow_job");
+
+                    b.Property<string>("AllowedMarkings")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("allowed_markings");
+
+                    b.Property<int>("ExtraSlots")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("extra_slots");
+
+                    b.Property<bool>("HavePriorityJoin")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("have_priority_join");
+
+                    b.Property<string>("OOCColor")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ooccolor");
+
+                    b.Property<int>("Tier")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tier");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_sponsors");
+
+                    b.ToTable("sponsors", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
