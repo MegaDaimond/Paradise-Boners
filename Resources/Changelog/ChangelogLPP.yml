@@ -140,3 +140,10 @@ Entries:
   id: 5623
   time: '2026-01-28T14:25:36.0000000+00:00'
   url: https://github.com/Lost-Paradise-Project/Paradise-Rebornger/pull/17
+- author: BL02DL
+  changes:
+    - type: Add
+      message: Добавлена возможность нести существ!
+  id: 5624
+  time: '2026-01-28T16:28:06.0000000+00:00'
+  url: https://github.com/Lost-Paradise-Project/Paradise-Rebornger/pull/22
